@@ -1,0 +1,226 @@
+$fontPrimary: 'Montserrat', sans-serif;
+$fontSecondary: 'Raleway', sans-serif;
+$colorPrimary: #0d47a1;
+$colorSecondary: #0097FC;
+$colorAccent: #EAC868;
+
+@mixin basicFontSize {
+  font-size: 1em;
+}
+
+@mixin slickBoxShadow {
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06);
+}
+
+@mixin seriousTextShadow {
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+              0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+#app {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: $fontPrimary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $colorPrimary;
+  overflow: hidden;
+  @include basicFontSize;
+  color: white;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $fontSecondary;
+  font-weight: 400;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .1s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: .5;
+}
+
+section {
+  width: 90vw;
+  height: 100%;
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 2rem 0;
+  text-align: center;
+  border-radius: 3px;
+  background-color: $colorSecondary;
+  @include slickBoxShadow;
+}
+
+button {
+  min-height: 1.6em;
+  min-width: 1.6em;
+  border: none;
+  color: $colorAccent;
+  background-color: $colorPrimary;
+  margin: .5em;
+  cursor: pointer;
+  border-radius: 2px;
+  @include slickBoxShadow;
+  @include basicFontSize;
+}
+
+button:focus {outline:0;}
+
+.toolbar {
+  padding: 0;
+  background-color: $colorPrimary;
+  width: auto;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.tabButton {
+  padding: 10px;
+  margin: 0;
+  border-right: 1px solid rgba(1, 1, 1, .6);
+  color: white;
+  font-size: .9em;
+  transition: all .3s ease-in-out;
+  &:last-of-type {
+    border-right: none;
+  }
+  &:hover {
+    transition: all .3s ease-in-out;
+    background-color: rgba(1, 1, 1, .6);
+  }
+}
+
+.large {
+  min-width: 150px;
+  min-height: 40px;
+  font-size: 1.3em;
+  letter-spacing: 3px;
+  color: white;
+  @include seriousTextShadow;
+}
+
+.form {
+  & .form-row {
+    padding: 1em;
+    display: block;
+    margin: .5em;
+    & label {
+      vertical-align: top;
+      display: inline-block;
+      width: 25%;
+      padding-right: 2em;
+    }
+    & .form-rowInput {
+      width: 66%;
+      padding: 3px 0 5px 7px;
+      @media only screen and (max-width: 600px) {
+        width: 100%;
+        margin-top: 1rem;
+      }
+    }
+    & .error {
+      display: inline-block;
+      margin-top: 1em;
+      margin-left: 30%;
+      color: red;
+    }
+  }
+}
+
+input {
+  @include basicFontSize;
+}
+
+// steps editor
+
+.stepsContainer ol {
+  padding: 0 2em;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.stepsContainer ol li {
+  text-align: center;
+  flex: 1 0 100%;
+  margin: 5px 0;
+  padding: 1em 0;
+  display: flex;
+  justify-content: space-around;
+  & input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  background-color: #000;
+  pointer-events: none;
+}
+
+.enabled {
+ background-color: $colorSecondary;
+}
+
+// global icons
+
+.icon {
+  width: 20px;
+  height: 20px;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center 2px;
+}
+
+.addIcon {
+  background-image: url('assets/icons/add.svg');
+}
+
+.importIcon {
+  background-image: url('assets/icons/import.svg');
+}
+
+.exportIcon {
+  background-image: url('assets/icons/export.svg');
+}
+
+.resetIcon {
+  background-image: url('assets/icons/reset.svg');
+}
+
+.undoIcon {
+  background-image: url('assets/icons/undo.svg');
+}
+
+.editIcon {
+  background-image: url('assets/icons/edit.svg');
+}
+
+.saveIcon {
+  background-image: url('assets/icons/save.svg');
+}
+
+.arrowUpIcon {
+  background-image: url('assets/icons/arrowup.svg');
+}
+
+.arrowDownIcon {
+  background-image: url('assets/icons/arrowdown.svg');
+}
+
+.deleteIcon {
+  background-image: url('assets/icons/delete.svg');
+}
