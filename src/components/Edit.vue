@@ -59,6 +59,7 @@
         <button @click="removeStep(step.id)">
           <svg class="icon deleteIcon" />
         </button>
+        <upload-img :id="step.id" />
       </li>
     </ol>
     <span v-else>
@@ -77,6 +78,7 @@
 <script>
 import { auth } from '@/firebaseInit'
 import { db } from '@/firebaseInit'
+import UploadImg from './UploadImg'
 import Navbar from './Navbar'
 
 /* I didn't use more firebase methods to set/update the collection so as to:
@@ -85,7 +87,8 @@ import Navbar from './Navbar'
 
 export default {
   components: {
-    'navbar': Navbar
+    'navbar': Navbar,
+    'upload-img': UploadImg
   },
   data () {
     return {
@@ -172,7 +175,9 @@ export default {
       for (let i = 0; i < this.sortedSteps.length; i++ ) {
         arr[i] = {
           name: this.sortedSteps[i].name,
-          id: i + 1
+          id: i + 1,
+          showUpload: false,
+          image: null
         }
       }
       this.steps = arr
